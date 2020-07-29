@@ -1,10 +1,14 @@
 package io.pleo.moneyformatting;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import io.pleo.moneyformatting.core.MoneyFormatterHelper;
-
-import static org.junit.Assert.assertEquals;
+import io.pleo.moneyformatting.data.Constants;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -13,12 +17,22 @@ import static org.junit.Assert.assertEquals;
  */
 public class MoneyFormatUnitTest {
 
-  @Test
-  public void bigNumberWithDecimalPoint() {
-    String input = "12342321.9877";
-    String output = MoneyFormatterHelper.formatString(input);
+  @ParameterizedTest
+  @MethodSource("inputOutputValuesProvider")
+  public void parameterizedTest(String input, String output) {
+    Assertions.assertEquals(
+        output, MoneyFormatterHelper.formatString(input), Constants.VALUES_DONT_MATCH);
+    // TODO: maybe use CSV file here
+  }
 
-    // TODO: add parameterized tests here
-    assertEquals(4, 2 + 2);
+  // TODO: implement test cases where the input is invalid
+
+  private static Stream inputOutputValuesProvider() {
+    return Stream.of(
+        Arguments.of("1564.890", "1 564.89"),
+        Arguments.of("1564.899", "1 564.90"),
+        Arguments.of("1564", "1 564.00"),
+        Arguments.of("164", "164.00"),
+        Arguments.of("3476367.679086", "3 476 367.68"));
   }
 }

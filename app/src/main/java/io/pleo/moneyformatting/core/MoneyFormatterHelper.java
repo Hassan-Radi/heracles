@@ -23,6 +23,7 @@ public class MoneyFormatterHelper {
     }
 
     // limit value to only two decimal points add a space for every 3 digits
+    // TODO: Look for a better way of doing this instead of using replaceAll
     return String.format("%,.2f", doubleValue).replaceAll(",", " ");
   }
 }
