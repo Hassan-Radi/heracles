@@ -21,7 +21,7 @@ public class MoneyFormatUnitTest {
   @MethodSource("inputOutputValuesProvider")
   public void parameterizedTest(String input, String output) {
     Assertions.assertEquals(
-        output, MoneyFormatterHelper.formatString(input), Constants.VALUES_DONT_MATCH);
+        output, MoneyFormatterHelper.formatMoney(input), Constants.VALUES_DONT_MATCH);
     // TODO: maybe use CSV file here
   }
 
@@ -31,8 +31,11 @@ public class MoneyFormatUnitTest {
     return Stream.of(
         Arguments.of("1564.890", "1 564.89"),
         Arguments.of("1564.899", "1 564.90"),
+        Arguments.of("1564.99", "1 564.99"),
         Arguments.of("1564", "1 564.00"),
         Arguments.of("164", "164.00"),
+        Arguments.of("2310000.159897", "2 310 000.16"),
+        Arguments.of("1600", "1 600.00"),
         Arguments.of("3476367.679086", "3 476 367.68"));
   }
 }

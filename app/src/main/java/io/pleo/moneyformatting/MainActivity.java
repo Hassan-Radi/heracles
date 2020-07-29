@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     && event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
               if (event == null || !event.isShiftPressed()) {
                 ((TextView) findViewById(R.id.moneyValue))
-                    .setText(
-                        MoneyFormatterHelper.formatString(textPersonName.getText().toString()));
+                    .setText(MoneyFormatterHelper.formatMoney(textPersonName.getText().toString()));
 
                 // TODO: handle exception when the value is not a number
 

@@ -6,13 +6,13 @@ import io.pleo.moneyformatting.data.Constants;
 public class MoneyFormatterHelper {
 
   /**
-   * Formats a String value by limiting the number of decimal points to only two points after
+   * Formats a money value by limiting the number of decimal points to only two points after
    * rounding up. It also adds spaces to make big numbers easier to read.
    *
    * @param value The String value to format.
    * @return A String representation to the final money value.
    */
-  public static String formatString(String value) {
+  public static String formatMoney(String value) {
     double doubleValue;
 
     // reject values that are not numerical
