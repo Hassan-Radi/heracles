@@ -2,10 +2,7 @@ package io.pleo.moneyformatting;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import io.pleo.moneyformatting.core.MoneyFormatterHelper;
 import io.pleo.moneyformatting.data.Constants;
@@ -18,24 +15,17 @@ import io.pleo.moneyformatting.data.Constants;
 public class MoneyFormatUnitTest {
 
   @ParameterizedTest
-  @MethodSource("inputOutputValuesProvider")
+  @CsvFileSource(resources = "/values.csv")
   public void parameterizedTest(String input, String output) {
-    Assertions.assertEquals(
-        output, MoneyFormatterHelper.formatMoney(input), Constants.VALUES_DONT_MATCH);
-    // TODO: maybe use CSV file here
-  }
-
-  // TODO: implement test cases where the input is invalid
-
-  private static Stream inputOutputValuesProvider() {
-    return Stream.of(
-        Arguments.of("1564.890", "1 564.89"),
-        Arguments.of("1564.899", "1 564.90"),
-        Arguments.of("1564.99", "1 564.99"),
-        Arguments.of("1564", "1 564.00"),
-        Arguments.of("164", "164.00"),
-        Arguments.of("2310000.159897", "2 310 000.16"),
-        Arguments.of("1600", "1 600.00"),
-        Arguments.of("3476367.679086", "3 476 367.68"));
+    // test invalid values
+    if (output == null) {
+      Assertions.assertThrows(
+          RuntimeException.class,
+          () -> MoneyFormatterHelper.formatMoney(input),
+          Constants.EXPECTED_TO_THROW_AN_EXCEPTION_MESSAGE);
+    } else {
+      Assertions.assertEquals(
+          output, MoneyFormatterHelper.formatMoney(input), Constants.VALUES_DONT_MATCH);
+    }
   }
 }
