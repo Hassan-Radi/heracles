@@ -11,7 +11,7 @@ For this challenge and instead of building the solution as a website, I decided 
  - The app can format double values, which gives 
  - The app runs on any Android device/emulator from Android 4.x and above.
 
-[TODO] add video/gif of the app in action here.
+<img src="https://ibb.co/VgBv0d5" width="360" height="640" />
 
 ## 2. Unit testing
 Testing on a lower level of the app to make sure certain functionalities are working as expected. Testing on a unit testing level is always favoured over UI testing as it is faster to build and execute and also less expensive in resources (time/money).

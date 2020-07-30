@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.alert_title)
                     .setMessage(R.string.alert_message)
-                    .setNegativeButton(android.R.string.no, null)
+                    .setNegativeButton(android.R.string.ok, null)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
               }
