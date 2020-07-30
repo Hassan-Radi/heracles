@@ -18,27 +18,24 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     // Add the action listener to update the text
-    final EditText textPersonName = (EditText) findViewById(R.id.editTextPersonName);
+    final EditText textPersonName = findViewById(R.id.editTextPersonName);
     textPersonName.setOnEditorActionListener(
-        new EditText.OnEditorActionListener() {
-          @Override
-          public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH
-                || actionId == EditorInfo.IME_ACTION_DONE
-                || event != null
-                    && event.getAction() == KeyEvent.ACTION_DOWN
-                    && event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-              if (event == null || !event.isShiftPressed()) {
-                ((TextView) findViewById(R.id.moneyValue))
-                    .setText(MoneyFormatterHelper.formatMoney(textPersonName.getText().toString()));
+        (v, actionId, event) -> {
+          if (actionId == EditorInfo.IME_ACTION_SEARCH
+              || actionId == EditorInfo.IME_ACTION_DONE
+              || event != null
+                  && event.getAction() == KeyEvent.ACTION_DOWN
+                  && event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+            if (event == null || !event.isShiftPressed()) {
+              ((TextView) findViewById(R.id.moneyValue))
+                  .setText(MoneyFormatterHelper.formatMoney(textPersonName.getText().toString()));
 
-                // TODO: handle exception when the value is not a number
+              // TODO: handle exception when the value is not a number
 
-                return true; // consume.
-              }
+              return true; // consume.
             }
-            return false; // pass on to other listeners.
           }
+          return false; // pass on to other listeners.
         });
   }
 }

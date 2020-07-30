@@ -24,6 +24,7 @@ public class MoneyFormatUnitTest {
           () -> MoneyFormatterHelper.formatMoney(input),
           Constants.EXPECTED_TO_THROW_AN_EXCEPTION_MESSAGE);
     } else {
+      // test valid values
       Assertions.assertEquals(
           output, MoneyFormatterHelper.formatMoney(input), Constants.VALUES_DONT_MATCH);
     }

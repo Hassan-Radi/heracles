@@ -15,7 +15,7 @@ public class MoneyFormatterHelper {
   public static String formatMoney(String value) {
     double doubleValue;
 
-    // reject values that are not numerical
+    // reject values that are not valid
     try {
       doubleValue = Double.valueOf(value);
     } catch (NumberFormatException ex) {
