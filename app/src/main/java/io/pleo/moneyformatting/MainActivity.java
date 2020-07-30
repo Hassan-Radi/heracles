@@ -1,5 +1,6 @@
 package io.pleo.moneyformatting;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
@@ -27,11 +28,19 @@ public class MainActivity extends AppCompatActivity {
                   && event.getAction() == KeyEvent.ACTION_DOWN
                   && event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
             if (event == null || !event.isShiftPressed()) {
-              ((TextView) findViewById(R.id.moneyValue))
-                  .setText(MoneyFormatterHelper.formatMoney(textPersonName.getText().toString()));
-
-              // TODO: handle exception when the value is not a number
-
+              try {
+                // got some text, let's try to format them
+                ((TextView) findViewById(R.id.moneyValue))
+                    .setText(MoneyFormatterHelper.formatMoney(textPersonName.getText().toString()));
+              } catch (RuntimeException ex) {
+                // Catch the exception and show an alert to describe what went wrong
+                new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(R.string.alert_title)
+                    .setMessage(R.string.alert_message)
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+              }
               return true; // consume.
             }
           }

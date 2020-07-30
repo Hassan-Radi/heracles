@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Money Formatting</string>
+    <string name="alert_title">Invalid number!</string>
+    <string name="alert_message">The value you have provided is invalid!</string>
 </resources>
