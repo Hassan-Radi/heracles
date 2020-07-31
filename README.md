@@ -11,6 +11,7 @@ For this challenge and instead of building the solution as a website, I decided 
  - The app can format BigDecimal numbers; which gives a lot of freedom for the values you can provide.
  - The core code that is responsible for doing the money formatting is split from the UI and maintained in class `MoneyFormatterHelper`. This allows us to easily unit test it later on.
  - The app runs on any Android devices/emulators from Android 4.x and above.
+ - The app is written in Android Studio using Java (JDK 1.8+) and built with Gradle.
 
 <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/app.gif" width="360" height="640" />
 
@@ -61,3 +62,9 @@ Black-box testing of the app. [TODO]
 #### How to run it?
  - Connect a physical device or setup a local emulator on your machine.
 [TODO]
+
+---
+
+#### General Notes:
+
+ - Everything is developed on Windows 10 x64 machine.
