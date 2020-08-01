@@ -70,7 +70,7 @@ White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still n
 
  - Written in IntelliJ IDE using Java (JDK 1.8+) and built with Maven. [TODO]
  - Unit tests are written using TestNG. [TODO]
- - Talk about Lombok [TODO].
+ - Talk about Lombok [TODO]
 
 ## Part 3: Appium tests
 Black-box testing of the app. [TODO]
