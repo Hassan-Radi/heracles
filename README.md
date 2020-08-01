@@ -1,7 +1,7 @@
 # Heracles: Pleo's Test Engineer Challenge
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Twelve_Labours_Altemps_Inv8642.jpg" height="300px"/>
 
-[For the original readme file detailing the challenge, click [here](./OLD-README.md)]
+[For the original readme file detailing the challenge, click [here](./docs/OLD-README.md)]
 
 ## 1. The App
 For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏) .
@@ -13,7 +13,7 @@ For this challenge and instead of building the solution as a website, I decided 
  - The app runs on any Android devices/emulators from Android 4.x and above.
  - The app is written in Android Studio using Java (JDK 1.8+) and built with Gradle.
 
-<img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/app.gif" width="360" height="640" />
+<img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/app.gif" width="360" height="640" />
 
 #### How to run it?
 
