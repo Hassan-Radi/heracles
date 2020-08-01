@@ -1,5 +1,8 @@
 package io.pleo.au_framework.core;
 
+import io.pleo.au_framework.data.Constants;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -9,8 +12,9 @@ import org.openqa.selenium.WebDriver;
  */
 public class DriverManager {
 
+  private static final Logger LOGGER = LogManager.getLogger(DriverManager.class);
   private static DriverManager instance;
-  private static WebDriver driver;
+  private WebDriver driver;
 
   /** The constructor is made private, so no one can create an instance of this class. */
   private DriverManager() {}
@@ -36,9 +40,11 @@ public class DriverManager {
   public WebDriver getDriver() {
     if (driver == null) {
       // create the driver instance by calling the chain of responsibility
+      LOGGER.debug(Constants.NO_WEBDRIVER_IS_CREATED_YET);
       return createChainOfResponsibility();
     }
     // driver is already created, just return it
+    LOGGER.debug(Constants.WEBDRIVER_INSTANCE_EXISTS);
     return driver;
   }
 

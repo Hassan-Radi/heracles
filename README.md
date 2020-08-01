@@ -4,7 +4,9 @@
 [For the original readme file detailing the challenge, click [here](./docs/OLD-README.md)]
 
 ## Introduction
-For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏). The solution is split into 3 parts.
+For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏).
+
+The solution is split into 3 parts.
  - **Part 1:** An Android app that has one activity and is used to format money values in a readable format. Next to the app, there is some unit tests and UI tests (using Espresso as a White-Box testing method).
  - **Part 2:** A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps.
  - **Part 3:** An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
@@ -64,10 +66,16 @@ White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still n
 [TODO]
 
 ## Part 2: Automation Framework
+[TODO]
 
+ - Written in IntelliJ IDE using Java (JDK 1.8+) and built with Maven. [TODO]
+ - Unit tests are written using TestNG. [TODO]
+ - Talk about Lombok [TODO]
 
 ## Part 3: Appium tests
 Black-box testing of the app. [TODO]
+
+ - Need to have Appium installed [TODO]
 
 #### How to run it?
  - Connect a physical device or setup a local emulator on your machine.
