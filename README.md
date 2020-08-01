@@ -36,7 +36,7 @@ This part was done using Junit 5.x, instead of the default Junit 4.x, to provide
 | Integers                              | You can use any integer value here with no decimal places.                 |
 | Float/Double/BigDecimal values        | You can use any Float/Double/BigDecimal values here with as much precision as a [BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html) can handle.              |
 | Text values                           | It can be any ASCII characters you want to test. The app will always reject any invalid numbers by throwing a RuntimeException.                 |
-| Invalid numbers                       | like -0 or 62.986.84565 (valid number with two decimal points).               |
+| Invalid numbers                       | like 62.986.84565 (valid number with two decimal points).               |
 | Signed numbers                        | like -123.45, -8765.876, etc..              |
 | Valid numbers with leading zeroes     | You can add any number of leading zeroes to a valid number and the app would remove the leading zeroes and format it correctly. |
 
