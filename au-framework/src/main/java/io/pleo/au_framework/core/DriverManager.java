@@ -32,7 +32,8 @@ public class DriverManager {
   private DriverManager() {}
 
   /**
-   * Returns an instance of this class if it already exists, otherwise it creates a new one.
+   * Returns an instance of this class if it already exists, otherwise it creates a new one. The
+   * instance can be used later on to access other methods implemented by this class.
    *
    * @return An instance of DriverManager.
    */

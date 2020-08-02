@@ -25,4 +25,10 @@ public class Constants {
   public static final String FAILED_TO_READ_JSON_FILE =
       "Failed to read the Json file. Exception: %s";
   public static final String VALUES_DONT_MATCH = "Values don't match.";
+  public static final String MANDATORY_SYSTEM_PROPERTY_NOT_DECLARED_MESSAGE =
+      "The mandatory system property [%s] wasn't declared. Stopping execution...";
+  public static final String FOUND_SYSTEM_PROPERTY_MESSAGE = "Found a system property [%s = %s].";
+
+  // System properties
+  public static final String DRIVER_CONFIG_PROPERTY_NAME = "driverConfig";
 }

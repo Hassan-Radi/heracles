@@ -7,11 +7,12 @@
 For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏).
 
 The solution is split into 3 parts.
- - **Part 1:** An Android app that has one activity and is used to format money values in a readable format. Next to the app, there is some unit tests and UI tests (using Espresso as a White-Box testing method).
- - **Part 2:** A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps.
- - **Part 3:** An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
+ - **Part 1:** Android app.
+ - **Part 2:** UI automation framework.
+ - **Part 3:** Appium tests
 
 ## Part 1: The App
+An Android app that has one activity and is used to format money values in a readable format. Next to the app, there is some unit tests and UI tests (using Espresso as a White-Box testing method).
 
  - The app takes any valid number and formats it into the requested money format.
  - If the value provided is invalid (e.g. any ASCII characters, wrongly formatted numbers, invalid numbers, etc..) it shows an error message.
@@ -63,26 +64,36 @@ White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still n
 
 #### How to run it?
  - Connect a physical device or setup a local emulator on your machine.
-[TODO]
+ - [TODO]
 
-## Part 2: Automation Framework
-[TODO]
+## Part 2: UI Automation Framework
+A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps. It provides an easy way to write UI test cases out of box without having to deal with the setup/boilerplate code needed to get there.
 
- - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven. [TODO]
- - Unit tests are written using TestNG. [TODO]
- - Code is built using [Project Lombok](https://projectlombok.org/) which helps inject getters/setters within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
+ - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
+ - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites).
+ - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
+ - The automation framework is deployed as a Maven library on GitHub and can be used as dependency for any project (as long as you have a valid token).
+
+### System Properties
+The following is a list of all the system properties declared by the automation framework:
+
+| Name       | Description                                   | Necessity         | Case-sensitivity  |
+| -----------           | -----------              | -----------              | -----------              | 
+| driverConfig | - The name (+extension) of the JSON file that includes all the driver configurations needed to create a new WebDriver. <br/> - The file is expected to be under the project resources folder. | Mandatory | case-sensitive |
 
 ## Part 3: Appium tests
-Black-box testing of the app. [TODO]
+An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
 
- - Need to have Appium installed [TODO]
+ - Need to have Appium installed [TODO: link to it]
 
 #### How to run it?
  - Connect a physical device or setup a local emulator on your machine.
-[TODO]
+ - Start the Appium server.
+ - [TODO]
 
 ---
 
 #### General Notes:
 
  - Everything is developed on Windows 10 x64 machine.
+ - You will notice that the intial commits are not signed  as it took me a while to realise that 😂; but once I did, I started supporting that in later commits.
