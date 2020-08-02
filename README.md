@@ -18,7 +18,7 @@ The solution is split into 3 parts.
  - The app can format BigDecimal numbers; which gives a lot of freedom for the values you can provide.
  - The core code that is responsible for doing the money formatting is split from the UI and maintained in class `MoneyFormatterHelper`, This provides the possibility to unit test it later on.
  - The app runs on any Android devices/emulators starting from Android 4.x and above.
- - The app is written in Android Studio using Java (JDK 1.8+) and built with Gradle.
+ - The app is written in Android Studio using Java (JDK 8+) and built with Gradle.
 
 <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/app.gif" width="360" height="640" />
 
@@ -68,7 +68,7 @@ White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still n
 ## Part 2: Automation Framework
 [TODO]
 
- - Written in IntelliJ IDE using Java (JDK 1.8+) and built with Maven. [TODO]
+ - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven. [TODO]
  - Unit tests are written using TestNG. [TODO]
  - Code is built using [Project Lombok](https://projectlombok.org/) which helps inject getters/setters within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
 

@@ -4,6 +4,7 @@ import io.pleo.au_framework.enums.ExecutionMode;
 import io.pleo.au_framework.enums.Platform;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.openqa.selenium.MutableCapabilities;
 
 /**
@@ -15,6 +16,7 @@ import org.openqa.selenium.MutableCapabilities;
  */
 @Getter
 @Setter
+@ToString
 public class JsonConfig {
 
   private Platform platform;
