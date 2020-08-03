@@ -25,8 +25,15 @@ An Android app that has one activity and is used to format money values in a rea
 
 #### How to run it?
 
- - Running the app from Android Studio: [TODO]
- - Running the app from the APK file: [TODO]
+ - **Running the app from Android Studio:** Android Studio produces debug builds by default when you run the app from within it, please do the following:
+    - Make sure that Android SDK is installed on your machine and [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
+    - Open the `Android-app` project using Android Studio.
+    - From the `Configurations` drop-down, please choose `app`.
+    - From the `Devices` drop-down, please choose the device/emulator that you want to run on.
+    - Click on the `Run app` button. <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/Build-Android-Studio.jpg" />
+ - **Running the app from the APK file:** The app's APK file can be found under `/Android-app/app/release/app-release.apk`. This is a signed release build that can be installed on devices/emulators like any other Android app. You can install the app using one of these options:
+   - Install using `adb install app-release.apk` (Would only work if you have Android SDK installed on your machine).
+   - Install by copying the APK file to your local phone storage and then opening it from your phone (Would only work if you have [Unknown sources](https://www.applivery.com/docs/troubleshooting/android-unknown-sources/) turned on under `Lock screen & security` settings). 
 
 ### Unit testing
 Testing on a lower level of the app to make sure certain functionalities are working as expected. Testing on a unit testing level is always favoured over UI testing as it is faster to build and execute and also less expensive in resources (time/money).
@@ -99,7 +106,8 @@ An example of using the automation framework (build in part 2) to write some UI 
  - You need to have the Appium server running on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
 
 #### How to run it?
- - Connect a physical device or setup a local emulator on your machine.
+ - Make sure that you have `JAVA_HOME` & `ANDROID_HOME` added to your environment variables (Otherwise the Appium session would fail to be created).
+ - Connect a physical device or setup a local emulator on your machine. If you connect a physical device, make sure that [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
  - Start the Appium server on your `localhost` with port number `4723`.
  - [TODO]
 
