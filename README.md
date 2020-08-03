@@ -72,9 +72,9 @@ A very basic, extendable automation framework built on top of Selenium/Appium th
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
  - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites).
  - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
- - The automation framework is deployed as a Maven library on GitHub and can be used as dependency for any project (as long as you have a valid token).
+ - The automation framework is deployed as a Maven package on GitHub, along with the source and Javadocs. It can later on be used as a dependency to jumpstart any project. 
 
-### System Properties
+### System properties
 The following is a list of all the system properties declared by the automation framework:
 
 | Name       | Description                                   | Necessity         | Case-sensitivity  |

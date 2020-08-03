@@ -24,7 +24,7 @@ import org.openqa.selenium.MutableCapabilities;
  * WebDriver.
  *
  * <p>Notice that we are using Lombok here to prevent having to implement a lot of boilerplate code
- * (like getters and setters) --> they would be generated automatically.
+ * (like getters and setters) as they would be generated automatically.
  */
 @Getter
 @Setter

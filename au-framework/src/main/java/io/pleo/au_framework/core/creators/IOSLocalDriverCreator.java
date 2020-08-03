@@ -47,7 +47,8 @@ public class IOSLocalDriverCreator extends BaseDriverCreator {
         && jsonConfig.getPlatform().equals(Platform.IOS)) {
       try {
         driver =
-            new IOSDriver(new URL(Constants.LOCAL_APPIUM_DRIVER_URL), jsonConfig.getCapabilities());
+            new IOSDriver<>(
+                new URL(Constants.LOCAL_APPIUM_DRIVER_URL), jsonConfig.getCapabilities());
       } catch (Exception e) {
         throw new RuntimeException(
             String.format(

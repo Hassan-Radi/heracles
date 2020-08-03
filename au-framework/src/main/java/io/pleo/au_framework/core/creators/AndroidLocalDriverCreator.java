@@ -47,7 +47,7 @@ public class AndroidLocalDriverCreator extends BaseDriverCreator {
         && jsonConfig.getPlatform().equals(Platform.ANDROID)) {
       try {
         driver =
-            new AndroidDriver(
+            new AndroidDriver<>(
                 new URL(Constants.LOCAL_APPIUM_DRIVER_URL), jsonConfig.getCapabilities());
       } catch (Exception e) {
         throw new RuntimeException(
