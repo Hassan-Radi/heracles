@@ -72,6 +72,8 @@ A very basic, extendable automation framework built on top of Selenium/Appium th
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
  - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites).
  - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
+ - The WebDriver creation logic is built using the [Chain of responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) design pattern; which makes it super easy to support new WebDrivers with minimal work and without breaking the existing ones. You can think of the JSON file as a representation to a single device/browser with all of its capabilities and settings.
+ - WebDrivers are created by passing a system property `driverConfig`; which maps to a JSON file that contains all the WebDriver configurations (platform, execution mode, capabilities, etc...).
  - The automation framework is deployed as a Maven package on GitHub, along with the source and Javadocs. It can later on be used as a dependency to jumpstart any project. 
 
 <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/Maven-Package.jpg" />
