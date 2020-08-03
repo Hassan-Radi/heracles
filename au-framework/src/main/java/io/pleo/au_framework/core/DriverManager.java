@@ -44,7 +44,7 @@ public class DriverManager {
    */
   public static DriverManager getInstance() {
     if (instance == null) {
-      return new DriverManager();
+      instance = new DriverManager();
     }
     return instance;
   }
