@@ -83,7 +83,7 @@ Espresso is used to write White-Box UI test cases for the Android app. Writing U
 A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps. It provides an easy way to write UI test cases out of box without having to deal with the setup/boilerplate code needed to get there.
 
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
- - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites).
+ - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites). TestNG dependency is declared for the `test` scope only (which makes it non-transitive), this doesn't lock you in and gives you the freedom to use any other xUnit testing tool in your project.
  - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
  - The WebDriver creation logic is built using the [Chain of responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) design pattern; which makes it super easy to support new WebDrivers with minimal work and without breaking the existing ones.
  - WebDrivers are created by passing a system property `driverConfig`; which maps to a JSON file that contains all the WebDriver configurations (platform, execution mode, capabilities, etc...). You can think of the JSON file as a representation to a single device/browser with all of its capabilities and settings.
@@ -109,7 +109,9 @@ The following are ideas that can be added/improved in the automation framework:
 ## <a name="appiumTests"></a>Part 3: Appium tests
 An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
 
- - You need to have the Appium server running on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
+ - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
+ - UI tests are written using TestNG (As it allows the flexibility to create xml test suites).
+ - You need to have the Appium installed on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
 
 #### How to run it?
  - Make sure that you have `JAVA_HOME` & `ANDROID_HOME` added to your environment variables (Otherwise the Appium session would fail to be created).
