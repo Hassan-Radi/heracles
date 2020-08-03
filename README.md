@@ -56,22 +56,28 @@ This part was done using Junit 5.x, instead of the default Junit 4.x, to provide
 | Valid numbers with leading zeroes     | You can add any number of leading zeroes to a valid number and the app would remove the leading zeroes and format it correctly. |
 
 #### How to run it?
- - Open the solution using Android Studio IDE and then [TODO]
+ - Open the solution using Android Studio IDE and then navigate to class `MoneyFormatUnitTest`.
+ - Click on the button next to the test `parameterizedTest` and choose `Run 'parameterizedTest()'`.
 
 ### UI testing
 We still need to do UI testing to ensure that certain parts of the app are functioning as expected (e.g. showing error messages). For this, two testing methods are implemented;
- - White-box: Implemented in this repo [TODO]
- - Black-box: [TODO]
+ - **White-box:** Implemented in project `Android-app` with the app itself.
+ - **Black-box:** Implemented in a separate project `Appium-tests` ([part 3](#appiumTests)).
 
 #### Espresso tests
-White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still not supported with Android instrumented tests). Writing UI tests using White-box techniques requires familiarity with the codebase and are usually written in the same code repository as the application itself.
+Espresso is used to write White-Box UI test cases for the Android app. Writing UI tests using White-Box techniques requires familiarity with the codebase and is usually written in the same code repository as the application itself.
 
  - Espresso test cases are maintained in class `EspressoInstrumentedTest`.
- - [TODO]
+ - Two test cases are implemented:
+    - **testMoneyFormatIsCorrect:** To test that a valid number is correctly formatted and displayed as expected.
+    - **testAlertIsShown:** To test that an alert is shown when you type an invalid number.
+ - Written using Junit 4.x (as Junit 5 is still not supported with Android instrumented tests).
 
 #### How to run it?
- - Connect a physical device or setup a local emulator on your machine.
- - [TODO]
+ - Open the solution using Android Studio IDE and then navigate to class `EspressoInstrumentedTest`.
+ - Connect a physical device or setup a local emulator on your machine. If you connect a physical device, make sure that [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
+ - From the `Devices` drop-down, please select the device/emulator you want to run the tests on.
+ - Click on the button next to class `EspressoInstrumentedTest` and choose `Run 'EspressoInstrumentedTest'`.
 
 ## Part 2: UI Automation Framework
 A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps. It provides an easy way to write UI test cases out of box without having to deal with the setup/boilerplate code needed to get there.
@@ -100,7 +106,7 @@ The following are ideas that can be added/improved in the automation framework:
  - **[Improvement]** No need to provide the `.json` file extension in the `driverConfig` system property; the framework should be smart enough to know that.
  - **[Improvement]** start the Appium server programmatically from the code, instead of relying on doing it manually.
 
-## Part 3: Appium tests
+## <a name="appiumTests"></a>Part 3: Appium tests
 An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
 
  - You need to have the Appium server running on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
