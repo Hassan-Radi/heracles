@@ -74,6 +74,8 @@ A very basic, extendable automation framework built on top of Selenium/Appium th
  - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
  - The automation framework is deployed as a Maven package on GitHub, along with the source and Javadocs. It can later on be used as a dependency to jumpstart any project. 
 
+<img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/Maven-Package.jpg" />
+
 ### System properties
 The following is a list of all the system properties declared by the automation framework:
 
