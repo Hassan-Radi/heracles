@@ -1,0 +1,10 @@
+{
+  "capabilities": {
+    "automationName": "UiAutomator2",
+    "platformName": "Android",
+    "appPackage": "io.pleo.moneyformatting",
+    "appActivity": "io.pleo.moneyformatting.MainActivity"
+  },
+  "executionMode": "local",
+  "platform": "Android"
+}

@@ -13,8 +13,11 @@
 
 package io.pleo.test;
 
+import io.pleo.data.Constants;
+import io.pleo.pages.HomeView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -25,5 +28,17 @@ public class MoneyFormatTests extends BaseTest {
   private static final Logger LOGGER = LogManager.getLogger(MoneyFormatTests.class);
 
   @Test
-  public void moneyFormatTest() {}
+  public void moneyFormatTest() {
+    /**
+     * TODO: to be changed later on when the new PageViewFactory is implemented in the automation
+     * framework.
+     */
+    HomeView homeView = new HomeView();
+    LOGGER.info(
+        String.format(Constants.TESTING_VALUES_MESSAGE, Constants.INPUT_1, Constants.OUTPUT_1));
+    String output = homeView.formatMoneyValue(Constants.INPUT_1);
+    LOGGER.info(String.format(Constants.TEXT_VALUE_FROM_LABEL, output));
+
+    Assert.assertEquals(output, Constants.OUTPUT_1, Constants.VALUES_DONT_MATCH_MESSAGE);
+  }
 }

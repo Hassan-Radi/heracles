@@ -15,6 +15,12 @@ package io.pleo.data;
 
 /** A class to host all the public constants */
 public class Constants {
+  // files
+  public static final String LOCAL_SONY_PHONE_FILE_NAME = "local-sony-xperia-z5-premium.json";
+
+  // test data
+  public static final String INPUT_1 = "2310000.159897";
+  public static final String OUTPUT_1 = "2 310 000.16";
 
   // Messages
   public static final String STARTING_NEW_TEST =
@@ -23,4 +29,10 @@ public class Constants {
       "Tearing down the current test. Terminating any existing WebDrivers...";
   public static final String WEBDRIVER_INSTANCE_TERMINATED =
       "WebDriver instance has been terminated. Test tear down is complete.";
+  public static final String TESTING_VALUES_MESSAGE =
+      "Testing the following pair of values [Input: %s, Output: %s].";
+  public static final String TYPING_TEXT_MESSAGE = "Typing text [%s]...";
+  public static final String VALUES_DONT_MATCH_MESSAGE = "Values don't match.";
+  public static final String TEXT_VALUE_FROM_LABEL =
+      "Fetched the following value from the money formatted label [%s].";
 }
