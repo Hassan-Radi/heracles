@@ -37,7 +37,8 @@ public class JsonTests {
                 .getPath());
     LOGGER.info(String.format("Got a value of: %s", jsonConfig));
     Assert.assertEquals(
-        jsonConfig.getExecutionMode(), ExecutionMode.LOCAL, Constants.VALUES_DONT_MATCH);
-    Assert.assertEquals(jsonConfig.getPlatform(), Platform.ANDROID, Constants.VALUES_DONT_MATCH);
+        jsonConfig.getExecutionMode(), ExecutionMode.LOCAL, Constants.VALUES_DONT_MATCH_MESSAGE);
+    Assert.assertEquals(
+        jsonConfig.getPlatform(), Platform.ANDROID, Constants.VALUES_DONT_MATCH_MESSAGE);
   }
 }

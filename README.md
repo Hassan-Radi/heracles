@@ -7,8 +7,8 @@
 For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏).
 
 The solution is split into 3 parts.
- - **Part 1:** Android app.
- - **Part 2:** UI automation framework.
+ - **Part 1:** Android app
+ - **Part 2:** UI automation framework
  - **Part 3:** Appium tests
 
 ## Part 1: The App
@@ -53,8 +53,8 @@ This part was done using Junit 5.x, instead of the default Junit 4.x, to provide
 
 ### UI testing
 We still need to do UI testing to ensure that certain parts of the app are functioning as expected (e.g. showing error messages). For this, two testing methods are implemented;
- - White-box: Implemented in this repo
- - Black-box:
+ - White-box: Implemented in this repo [TODO]
+ - Black-box: [TODO]
 
 #### Espresso tests
 White-box testing of the app using Espresso and Junit 4.x (as Junit 5 is still not supported with Android instrumented tests). Writing UI tests using White-box techniques requires familiarity with the codebase and are usually written in the same code repository as the application itself.
@@ -81,14 +81,22 @@ The following is a list of all the system properties declared by the automation 
 | -----------           | -----------              | -----------              | -----------              | 
 | driverConfig | - The name (+extension) of the JSON file that includes all the driver configurations needed to create a new WebDriver. <br/> - The file is expected to be under the project resources folder. | Mandatory | case-sensitive |
 
+### Future improvements
+The following are ideas that can be added/improved in the automation framework:
+
+ - **[Feature]** Add support to run in the cloud using SauceLabs or BrowserStack.
+ - **[Improvement]** Make the WebDriver URL a variable inside the JSON file; which will allow the flexibility to run on custom grids/servers.
+ - **[Improvement]** No need to provide the `.json` file extension in the `driverConfig` system property; the framework should be smart enough to know that.
+ - **[Improvement]** start the Appium server programmatically from the code, instead of relying on doing it manually.
+
 ## Part 3: Appium tests
 An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
 
- - Need to have Appium installed [TODO: link to it]
+ - You need to have the Appium server running on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
 
 #### How to run it?
  - Connect a physical device or setup a local emulator on your machine.
- - Start the Appium server.
+ - Start the Appium server on your `localhost` with port number `4723`.
  - [TODO]
 
 ---
@@ -96,4 +104,4 @@ An example of using the automation framework (build in part 2) to write some UI 
 #### General Notes:
 
  - Everything is developed on Windows 10 x64 machine.
- - You will notice that the intial commits are not signed  as it took me a while to realise that 😂; but once I did, I started supporting that in later commits.
+ - You might have notice that the initial commits were not signed (as it took me a while to realise that 😂, but once I did, I started signing all of them from that moment forward).

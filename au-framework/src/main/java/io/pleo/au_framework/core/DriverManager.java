@@ -12,7 +12,12 @@
  */
 package io.pleo.au_framework.core;
 
+import io.pleo.au_framework.core.creators.AndroidLocalDriverCreator;
+import io.pleo.au_framework.core.creators.DriverCreator;
+import io.pleo.au_framework.core.creators.IOSLocalDriverCreator;
 import io.pleo.au_framework.data.Constants;
+import io.pleo.au_framework.data.JsonConfig;
+import io.pleo.au_framework.utils.JsonUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -53,16 +58,44 @@ public class DriverManager {
   public WebDriver getDriver() {
     if (driver == null) {
       // create the driver instance by calling the chain of responsibility
-      LOGGER.debug(Constants.NO_WEBDRIVER_IS_CREATED_YET);
-      return createChainOfResponsibility();
+      LOGGER.debug(Constants.NO_WEBDRIVER_IS_CREATED_YET_MESSAGE);
+
+      // fetch the driver config information
+      JsonConfig jsonConfig =
+          JsonUtils.readJson(
+              DriverManager.class
+                  .getClassLoader()
+                  .getResource(SystemProperties.getDriverConfig())
+                  .getPath());
+      driver = createChainOfResponsibility().createDriver(jsonConfig);
+    } else {
+      // driver is already created, just return it
+      LOGGER.debug(Constants.WEBDRIVER_INSTANCE_EXISTS_MESSAGE);
     }
-    // driver is already created, just return it
-    LOGGER.debug(Constants.WEBDRIVER_INSTANCE_EXISTS);
+
     return driver;
   }
 
-  private static WebDriver createChainOfResponsibility() {
-    // TODO:
-    return null;
+  /**
+   * Creates the chain of responsibility and then returns a reference to the first item in the
+   * chain.
+   *
+   * @return A reference to the first DriverCreator.
+   */
+  private static DriverCreator createChainOfResponsibility() {
+    // create the chain
+    LOGGER.debug(Constants.BUILDING_WEBDRIVER_CREATORS_CHAIN_MESSAGE);
+    AndroidLocalDriverCreator androidLocalDriverCreator = new AndroidLocalDriverCreator();
+    IOSLocalDriverCreator iosLocalDriverCreator = new IOSLocalDriverCreator();
+
+    LOGGER.debug(
+        String.format(
+            Constants.ADDED_FIRST_WEBDRIVER_CREATOR_MESSAGE,
+            AndroidLocalDriverCreator.class.getSimpleName()));
+    androidLocalDriverCreator.setNext(iosLocalDriverCreator);
+
+    // return a reference to the first item
+    LOGGER.debug(Constants.CHAIN_CREATION_IS_COMPLETE_MESSAGE);
+    return androidLocalDriverCreator;
   }
 }

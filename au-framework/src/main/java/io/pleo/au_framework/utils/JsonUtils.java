@@ -72,7 +72,7 @@ public class JsonUtils {
     } catch (IOException exception) {
       throw new RuntimeException(
           String.format(
-              Constants.FAILED_TO_READ_JSON_FILE, ExceptionUtils.getStackTrace(exception)));
+              Constants.FAILED_TO_READ_JSON_FILE_MESSAGE, ExceptionUtils.getStackTrace(exception)));
     }
 
     return jsonConfig;

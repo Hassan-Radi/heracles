@@ -12,19 +12,20 @@
  */
 package io.pleo.au_framework;
 
+import io.appium.java_client.android.AndroidDriver;
 import io.pleo.au_framework.core.DriverManager;
+import io.pleo.au_framework.data.Constants;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-/** A class that hosts all the unit test cases for working with system properties. */
-public class SystemPropertiesTests {
+/** A class that hosts all the unit test cases for working with WebDrivers. */
+public class WebDriverTests {
 
   @Test
-  public void noDriverConfigDeclaredTest() {
-    // Don't declare a driverConfig and try to get a driver instance
-    Throwable throwable =
-        Assert.expectThrows(
-            ExceptionInInitializerError.class, () -> DriverManager.getInstance().getDriver());
-    Assert.assertTrue(throwable.getCause().getClass().equals(RuntimeException.class));
+  public void androidLocalWebDriverTest() {
+    System.setProperty(Constants.DRIVER_CONFIG_PROPERTY_NAME, Constants.LOCAL_SONY_PHONE_FILE_NAME);
+    WebDriver driver = DriverManager.getInstance().getDriver();
+    Assert.assertTrue(driver instanceof AndroidDriver, Constants.INCORRECT_WEBDRIVER_TYPE_MESSAGE);
   }
 }

@@ -1,7 +1,7 @@
 {
   "capabilities": {
-    "x": "1",
-    "y": "2"
+    "automationName": "UiAutomator2",
+    "platformName": "Android"
   },
   "executionMode": "local",
   "platform": "Android"
