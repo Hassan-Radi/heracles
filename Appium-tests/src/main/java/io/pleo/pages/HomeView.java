@@ -10,7 +10,6 @@
  * <p>See the License for the specific language governing permissions and limitations under the
  * License.
  */
-
 package io.pleo.pages;
 
 import com.google.common.collect.ImmutableMap;
@@ -33,6 +32,12 @@ public class HomeView extends BaseView {
   @AndroidFindBy(id = "textViewMoneyValue")
   private WebElement moneyValueLabel;
 
+  /**
+   * Types the provided number and presses on the 'Done' button on the softKeyboard.
+   *
+   * @param number A String representation to the requested number.
+   * @return A String representing the text displayed in the label.
+   */
   public String formatMoneyValue(String number) {
     LOGGER.debug(String.format(Constants.TYPING_TEXT_MESSAGE, number));
     moneyValueTextField.sendKeys(number);

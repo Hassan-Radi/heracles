@@ -10,7 +10,6 @@
  * <p>See the License for the specific language governing permissions and limitations under the
  * License.
  */
-
 package io.pleo.data;
 
 /** A class to host all the public constants */

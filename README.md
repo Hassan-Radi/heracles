@@ -7,12 +7,12 @@
 For this challenge and instead of building the solution as a website, I decided to step out of my comfort zone and build an Android mobile app instead. This is mainly because I never explored building apps before, yet I anticipated it would be a great learning experience (which turned out to be true 🙏).
 
 The solution is split into 3 parts.
- - **Part 1:** Android app
- - **Part 2:** UI automation framework
- - **Part 3:** Appium tests
+ - [**Part 1:** Android app](#theApp)
+ - [**Part 2:** UI automation framework](#automationFramework)
+ - [**Part 3:** Appium tests](#appiumTests)
 
-## Part 1: The App
-An Android app that has one activity and is used to format money values in a readable format. Next to the app, there is some unit tests and UI tests (using Espresso as a White-Box testing method).
+## <a name="theApp"></a> Part 1: The App
+An Android app that has one activity and is used to format money values in a readable format. Bundled with the app, there are some unit tests and UI tests.
 
  - The app takes any valid number and formats it into the requested money format.
  - If the value provided is invalid (e.g. any ASCII characters, wrongly formatted numbers, invalid numbers, etc..) it shows an error message.
@@ -25,14 +25,14 @@ An Android app that has one activity and is used to format money values in a rea
 
 #### How to run it?
 
- - **Running the app from Android Studio:** Android Studio produces debug builds by default when you run the app from within it, please do the following:
-    - Make sure that Android SDK is installed on your machine and [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
+ - **Running the app from Android Studio:** Android Studio produces debug builds by default when you run the app from within it; please do the following:
+    - Make sure `Android SDK` is installed on your machine and [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
     - Open the `Android-app` project using Android Studio.
     - From the `Configurations` drop-down, please choose `app`.
     - From the `Devices` drop-down, please choose the device/emulator that you want to run on.
     - Click on the `Run app` button. <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/Build-Android-Studio.jpg" />
- - **Running the app from the APK file:** The app's APK file can be found under `/Android-app/app/release/app-release.apk`. This is a signed release build that can be installed on devices/emulators like any other Android app. You can install the app using one of these options:
-   - Install using `adb install app-release.apk` (Would only work if you have Android SDK installed on your machine).
+ - **Running the app from the APK file:** The APK file of the app can be found under `/Android-app/app/release/app-release.apk`. This is a signed release build that can be installed on devices/emulators like any other Android app. You can install the app using one of these options:
+   - Install using `adb install app-release.apk` (Would only work if you have Android SDK installed on your machine and `ANDROID_HOME` system variable declared and added to the `PATH` system variable).
    - Install by copying the APK file to your local phone storage and then opening it from your phone (Would only work if you have [Unknown sources](https://www.applivery.com/docs/troubleshooting/android-unknown-sources/) turned on under `Lock screen & security` settings). 
 
 ### Unit testing
@@ -44,14 +44,14 @@ This part was done using Junit 5.x, instead of the default Junit 4.x, to provide
 
  - Unit test cases are maintained in class `MoneyFormatUnitTest`.
  - All the test cases are maintained in a CSV file with the format `<Input>,<Output>`.
- - For invalid test cases where an error message is expected, the `<Output>` value is left empty in the CSV file. The unit test case checks the output value before it starts executing and adapts the checks accordingly.
+ - For invalid test cases where an error message is expected, the `<Output>` value is left empty in the CSV file (The unit test case checks the output value before it starts executing and adapts the checks accordingly).
 
 | Test case                             | Description & examples      |
 | -----------                           | -----------       |
 | Integers                              | You can use any integer value here with no decimal places.                 |
 | Float/Double/BigDecimal values        | You can use any Float/Double/BigDecimal values here with as much precision as a [BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html) can handle.              |
 | Text values                           | It can be any ASCII characters you want to test. The app will always reject any invalid numbers by throwing a RuntimeException.                 |
-| Invalid numbers                       | like 62.986.84565 (valid number with two decimal points).               |
+| Invalid numbers                       | like 62.986.84565 (number with two decimal points).               |
 | Signed numbers                        | like -123.45, -8765.876, etc..              |
 | Valid numbers with leading zeroes     | You can add any number of leading zeroes to a valid number and the app would remove the leading zeroes and format it correctly. |
 
@@ -79,15 +79,15 @@ Espresso is used to write White-Box UI test cases for the Android app. Writing U
  - From the `Devices` drop-down, please select the device/emulator you want to run the tests on.
  - Click on the button next to class `EspressoInstrumentedTest` and choose `Run 'EspressoInstrumentedTest'`.
 
-## Part 2: UI Automation Framework
-A very basic, extendable automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps. It provides an easy way to write UI test cases out of box without having to deal with the setup/boilerplate code needed to get there.
+## <a name="automationFramework"></a> Part 2: UI Automation Framework
+A very basic, extendable & easy to maintain automation framework built on top of Selenium/Appium that can be used for both web & mobile websites/apps. It provides an easy way to write UI test cases out of box without having to deal with the setup/boilerplate code needed to get there.
 
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
- - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites). TestNG dependency is declared for the `test` scope only (which makes it non-transitive), this doesn't lock you in and gives you the freedom to use any other xUnit testing tool in your project.
+ - Unit tests are written using TestNG (As it allows the flexibility to create xml test suites). TestNG dependency is declared for the `test` scope only (which makes it non-transitive). This doesn't lock you in and gives you the freedom to use any other xUnit testing tool in your project.
  - Using [Project Lombok](https://projectlombok.org/) in the code whenever needed which helps inject getters, setters, toString, etc... within the code without having to declare them explicitly. This helps reduce the amount of boilerplate code needed usually by Java.
  - The WebDriver creation logic is built using the [Chain of responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) design pattern; which makes it super easy to support new WebDrivers with minimal work and without breaking the existing ones.
  - WebDrivers are created by passing a system property `driverConfig`; which maps to a JSON file that contains all the WebDriver configurations (platform, execution mode, capabilities, etc...). You can think of the JSON file as a representation to a single device/browser with all of its capabilities and settings.
- - The automation framework is deployed as a Maven package on GitHub, along with the source and Javadocs. It can later on be used as a dependency to jumpstart any project. 
+ - The automation framework is deployed as a Maven package on GitHub, along with the source and Javadocs. It can later on be used as a dependency to jumpstart your project. 
 
 <img src="https://raw.githubusercontent.com/Hassan-Radi/heracles/master/docs/Maven-Package.jpg" />
 
@@ -102,18 +102,18 @@ The following is a list of all the system properties declared by the automation 
 The following are ideas that can be added/improved in the automation framework:
 
  - **[Feature]** Add support to run in the cloud using SauceLabs or BrowserStack.
- - **[Feature]** Add a `PageFactory` class that manufactures platform dependent page objects dynamically depending on the platform value.
+ - **[Feature]** Add a `PageViewFactory` class that manufactures platform dependent page objects dynamically depending on the platform value. This would allow our tests to be platform-agnostic and one single test can run on both Android & iOS for example (with all the platform depdendent code hidden in the abstraction layer and instantiated implicitly by the automation framework).
  - **[Improvement]** Make the WebDriver URL a variable inside the JSON file; which will allow the flexibility to run on custom grids/servers.
  - **[Improvement]** No need to provide the `.json` file extension in the `driverConfig` system property; the framework should be smart enough to know that.
  - **[Improvement]** start the Appium server programmatically from the code, instead of relying on doing it manually.
 
-## <a name="appiumTests"></a>Part 3: Appium tests
-An example of using the automation framework (build in part 2) to write some UI test cases for the Android app (using Appium as a Black-Box testing method).
+## <a name="appiumTests"></a> Part 3: Appium tests
+An example of using the automation framework (build in [part 2](#automationFramework)) to write some UI test cases for the Android app (using Black-Box testing method with Appium).
 
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
  - UI tests are written using TestNG (As it allows the flexibility to create xml test suites).
- - UI pages are created using the Page Object design pattern and using the built-in `PageFactory` & `@FindBy` annotations provided by Appium.
- - You need to have the Appium installed on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
+ - UI pages are created using the Page Object design pattern and using the built-in `PageFactory` & `@FindBy` annotations provided by Appium/Selenium.
+ - You need to have Appium installed on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
 
 #### How to run it?
  - Make sure that you have `JAVA_HOME` & `ANDROID_HOME` added to your environment variables (Otherwise the Appium session would fail to be created).
