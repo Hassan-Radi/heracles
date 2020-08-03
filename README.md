@@ -102,6 +102,7 @@ The following is a list of all the system properties declared by the automation 
 The following are ideas that can be added/improved in the automation framework:
 
  - **[Feature]** Add support to run in the cloud using SauceLabs or BrowserStack.
+ - **[Feature]** Add a `PageFactory` class that manufactures platform dependent page objects dynamically depending on the platform value.
  - **[Improvement]** Make the WebDriver URL a variable inside the JSON file; which will allow the flexibility to run on custom grids/servers.
  - **[Improvement]** No need to provide the `.json` file extension in the `driverConfig` system property; the framework should be smart enough to know that.
  - **[Improvement]** start the Appium server programmatically from the code, instead of relying on doing it manually.
@@ -111,13 +112,15 @@ An example of using the automation framework (build in part 2) to write some UI 
 
  - Written in IntelliJ IDE using Java (JDK 8+) and built with Maven.
  - UI tests are written using TestNG (As it allows the flexibility to create xml test suites).
+ - UI pages are created using the Page Object design pattern and using the built-in `PageFactory` & `@FindBy` annotations provided by Appium.
  - You need to have the Appium installed on your machine. You can either do this by installing Appium from the command line, or an easier way would be to install the [Appium Desktop app](https://github.com/appium/appium-desktop). 
 
 #### How to run it?
  - Make sure that you have `JAVA_HOME` & `ANDROID_HOME` added to your environment variables (Otherwise the Appium session would fail to be created).
  - Connect a physical device or setup a local emulator on your machine. If you connect a physical device, make sure that [USB debugging](https://developer.android.com/studio/debug/dev-options#enable) is turned on under `Developer options`.
  - Start the Appium server on your `localhost` with port number `4723`.
- - [TODO]
+ - The provided JSON file assumes that the app is already installed on your phone. If this is not the case, then either install the app on the phone or change the capabilities and add `app` capability and make it point to the absolute path of the APK file `<ROOT_FOLDER_LOCATION>/Android-app/app/release/app-release.apk`
+ - Create a new Maven run configuration in your IntelliJ IDE with the command line value `test -Dtest=MoneyFormatTests -DdriverConfig=local-sony-xperia-z5-premium.json`.
 
 ---
 
